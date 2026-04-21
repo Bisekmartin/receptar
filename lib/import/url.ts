@@ -38,7 +38,7 @@ function tryJsonLd($: cheerio.CheerioAPI): ImportedRecipe | null {
       const recipe = findRecipeSchema(data)
       if (!recipe) return
 
-      const title = recipe.name || ''
+      const title = typeof recipe.name === 'string' ? recipe.name : ''
       const ingredients = extractIngredients(recipe)
       const instructions = extractInstructions(recipe)
 
