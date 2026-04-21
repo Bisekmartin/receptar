@@ -11,7 +11,7 @@ interface Recipe {
 }
 
 const CATEGORY_ICONS: Record<string, { icon: string; label: string }> = {
-  vareni: { icon: '🥘', label: 'Vaření' },
+  vareni: { icon: '🍽️', label: 'Vaření' },
   peceni: { icon: '🥐', label: 'Pečení' },
 }
 
