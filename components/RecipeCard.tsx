@@ -10,9 +10,9 @@ interface Recipe {
   favorite: boolean
 }
 
-const CATEGORY_LABELS: Record<string, string> = {
-  vareni: 'Vaření',
-  peceni: 'Pečení',
+const CATEGORY_ICONS: Record<string, { icon: string; label: string }> = {
+  vareni: { icon: '🥘', label: 'Vaření' },
+  peceni: { icon: '🥐', label: 'Pečení' },
 }
 
 export default function RecipeCard({ recipe, isAdmin, onFavoriteToggle }: {
@@ -41,8 +41,11 @@ export default function RecipeCard({ recipe, isAdmin, onFavoriteToggle }: {
     <Link href={`/recipes/${recipe.id}`} className="block card hover:shadow-card-hover group">
       <div className="p-5 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
-          <span className="inline-block shrink-0 text-xs px-2.5 py-1 rounded-full bg-cream-200 text-stone-600 font-medium">
-            {CATEGORY_LABELS[recipe.category] ?? recipe.category}
+          <span
+            className="shrink-0 text-lg leading-none"
+            title={CATEGORY_ICONS[recipe.category]?.label ?? recipe.category}
+          >
+            {CATEGORY_ICONS[recipe.category]?.icon ?? '🍽'}
           </span>
           <h2 className="font-serif text-base text-stone-800 leading-snug group-hover:text-gold transition-colors truncate">
             {recipe.title}
