@@ -17,11 +17,8 @@ export default function Navigation({ isAdmin }: { isAdmin: boolean }) {
     <header className="no-print bg-white border-b border-cream-300 sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-serif text-xl text-stone-800 tracking-wide hover:text-gold transition-colors flex items-baseline gap-2">
+          <Link href="/" className="font-serif text-xl text-stone-800 tracking-wide hover:text-gold transition-colors">
             Martinův receptář
-            <span className="text-xs text-stone-300 font-sans font-normal">
-              v{process.env.NEXT_PUBLIC_APP_VERSION}
-            </span>
           </Link>
 
           <nav className="flex items-center gap-1">

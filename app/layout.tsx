@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 import { isAdmin } from '@/lib/auth'
 
 const inter = Inter({
@@ -24,11 +25,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="cs" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="min-h-screen bg-cream-100">
+      <body className="min-h-screen bg-cream-100 flex flex-col">
         <Navigation isAdmin={admin} />
-        <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+        <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-8">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   )
