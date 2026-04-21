@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const { version } = require('./package.json')
+
 const nextConfig = {
   serverExternalPackages: ['tesseract.js', 'pdf-parse'],
   env: {
-    NEXT_PUBLIC_APP_VERSION: process.env.npm_package_version,
+    NEXT_PUBLIC_APP_VERSION: version,
   },
 }
 
