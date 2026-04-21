@@ -8,7 +8,6 @@ interface Recipe {
   title: string
   category: string
   favorite: boolean
-  ingredients: string
   instructions: string
 }
 
@@ -24,7 +23,7 @@ export default function RecipeList({ initialRecipes, isAdmin }: { initialRecipes
       if (category !== 'vse' && r.category !== category) return false
       if (onlyFavorites && !r.favorite) return false
       if (q) {
-        const hay = `${r.title} ${r.ingredients} ${r.instructions}`.toLowerCase()
+        const hay = `${r.title} ${r.instructions}`.toLowerCase()
         if (!hay.includes(q)) return false
       }
       return true

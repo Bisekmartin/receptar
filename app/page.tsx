@@ -9,7 +9,7 @@ export default async function HomePage() {
   const [recipes, admin] = await Promise.all([
     prisma.recipe.findMany({
       orderBy: [{ favorite: 'desc' }, { updatedAt: 'desc' }],
-      select: { id: true, title: true, category: true, favorite: true, ingredients: true, instructions: true },
+      select: { id: true, title: true, category: true, favorite: true, instructions: true },
     }),
     isAdmin(),
   ])
