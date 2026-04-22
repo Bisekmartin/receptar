@@ -1,0 +1,8 @@
+#!/bin/sh
+# Auto-bump minor version after each commit.
+# Skip recursion: npm version minor itself creates a commit with message like "0.8.0"
+last_msg=$(git log -1 --pretty=%s)
+case "$last_msg" in
+  [0-9]*.[0-9]*.[0-9]*) exit 0 ;;
+esac
+npm version minor
