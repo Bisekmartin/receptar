@@ -66,13 +66,13 @@ export default function RecipeForm({ initial = {}, recipeId, onCancel }: Props) 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {error && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+        <div className="p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400 text-sm">
           {error}
         </div>
       )}
 
       <div>
-        <label className="block text-sm font-medium text-stone-700 mb-1.5">Název receptu</label>
+        <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1.5">Název receptu</label>
         <input
           type="text"
           value={form.title}
@@ -84,7 +84,7 @@ export default function RecipeForm({ initial = {}, recipeId, onCancel }: Props) 
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-stone-700 mb-1.5">Kategorie</label>
+        <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1.5">Kategorie</label>
         <div className="flex gap-3">
           {[
             { value: 'vareni', label: 'Vaření' },
@@ -99,16 +99,16 @@ export default function RecipeForm({ initial = {}, recipeId, onCancel }: Props) 
                 onChange={() => set('category', value)}
                 className="accent-gold"
               />
-              <span className="text-sm text-stone-700">{label}</span>
+              <span className="text-sm text-stone-700 dark:text-stone-300">{label}</span>
             </label>
           ))}
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-stone-700 mb-1.5">
+        <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1.5">
           Suroviny
-          <span className="text-stone-400 font-normal ml-1">(každá surovina na nový řádek)</span>
+          <span className="text-stone-400 dark:text-stone-500 font-normal ml-1">(každá surovina na nový řádek)</span>
         </label>
         <textarea
           value={form.ingredients}
@@ -119,7 +119,7 @@ export default function RecipeForm({ initial = {}, recipeId, onCancel }: Props) 
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-stone-700 mb-1.5">Postup</label>
+        <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1.5">Postup</label>
         <textarea
           value={form.instructions}
           onChange={(e) => set('instructions', e.target.value)}
@@ -136,7 +136,7 @@ export default function RecipeForm({ initial = {}, recipeId, onCancel }: Props) 
             onChange={(e) => set('favorite', e.target.checked)}
             className="w-4 h-4 accent-gold"
           />
-          <span className="text-sm text-stone-700">Označit jako oblíbený</span>
+          <span className="text-sm text-stone-700 dark:text-stone-300">Označit jako oblíbený</span>
         </label>
       </div>
 

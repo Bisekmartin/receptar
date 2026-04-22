@@ -43,7 +43,7 @@ export default function RecipeActions({ recipeId, favorite }: { recipeId: number
       <button
         onClick={deleteRecipe}
         disabled={deleting}
-        className="btn-ghost text-red-500 hover:bg-red-50"
+        className="btn-ghost text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40"
       >
         {deleting ? 'Mažu…' : 'Smazat'}
       </button>

@@ -30,7 +30,7 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
     <div className="max-w-2xl">
       {/* Back + actions */}
       <div className="no-print flex items-center justify-between mb-6">
-        <Link href="/" className="text-sm text-stone-400 hover:text-stone-600 transition-colors">
+        <Link href="/" className="text-sm text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300 transition-colors">
           ← Zpět na recepty
         </Link>
         {admin && <RecipeActions recipeId={recipe.id} favorite={recipe.favorite} />}
@@ -39,7 +39,7 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
       {/* Header */}
       <div className="mb-8 print-content">
         <div className="flex items-start gap-3 mb-3">
-          <h1 className="font-serif text-3xl sm:text-4xl text-stone-800 leading-tight flex-1">
+          <h1 className="font-serif text-3xl sm:text-4xl text-stone-800 dark:text-stone-100 leading-tight flex-1">
             {recipe.title}
           </h1>
           {recipe.favorite && (
@@ -47,7 +47,7 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
           )}
         </div>
         <div className="flex items-center gap-3">
-          <span className="inline-block text-xs px-2.5 py-1 rounded-full bg-cream-200 text-stone-600 font-medium">
+          <span className="inline-block text-xs px-2.5 py-1 rounded-full bg-cream-200 dark:bg-stone-700 text-stone-600 dark:text-stone-300 font-medium">
             {CATEGORY_LABELS[recipe.category] ?? recipe.category}
           </span>
           {recipe.favorite && (
@@ -59,34 +59,34 @@ export default async function RecipePage({ params }: { params: Promise<{ id: str
       <div className="space-y-8 print-content">
         {/* Ingredients */}
         <section className="card p-6">
-          <h2 className="font-serif text-xl text-stone-700 mb-4">Suroviny</h2>
+          <h2 className="font-serif text-xl text-stone-700 dark:text-stone-300 mb-4">Suroviny</h2>
           {ingredients.length > 0 ? (
             <ul className="space-y-2">
               {ingredients.map((ing, i) => (
-                <li key={i} className="flex items-baseline gap-2 text-stone-700">
+                <li key={i} className="flex items-baseline gap-2 text-stone-700 dark:text-stone-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2" />
                   <span>{ing}</span>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-stone-400 text-sm italic">Suroviny nejsou uvedeny.</p>
+            <p className="text-stone-400 dark:text-stone-500 text-sm italic">Suroviny nejsou uvedeny.</p>
           )}
         </section>
 
         {/* Instructions */}
         <section className="card p-6">
-          <h2 className="font-serif text-xl text-stone-700 mb-4">Postup</h2>
+          <h2 className="font-serif text-xl text-stone-700 dark:text-stone-300 mb-4">Postup</h2>
           {instructionParagraphs.length > 0 ? (
             <div className="space-y-4">
               {instructionParagraphs.map((para, i) => (
-                <p key={i} className="text-stone-700 leading-relaxed">
+                <p key={i} className="text-stone-700 dark:text-stone-300 leading-relaxed">
                   {para}
                 </p>
               ))}
             </div>
           ) : (
-            <p className="text-stone-400 text-sm italic">Postup není uveden.</p>
+            <p className="text-stone-400 dark:text-stone-500 text-sm italic">Postup není uveden.</p>
           )}
         </section>
       </div>

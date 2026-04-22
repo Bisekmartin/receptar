@@ -47,7 +47,7 @@ export default function RecipeCard({ recipe, isAdmin, onFavoriteToggle }: {
           >
             {CATEGORY_ICONS[recipe.category]?.icon ?? '🍽'}
           </span>
-          <h2 className="font-serif text-base text-stone-800 leading-snug group-hover:text-gold transition-colors truncate">
+          <h2 className="font-serif text-base text-stone-800 dark:text-stone-200 leading-snug group-hover:text-gold transition-colors truncate">
             {recipe.title}
           </h2>
         </div>

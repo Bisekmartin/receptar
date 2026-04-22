@@ -62,17 +62,17 @@ export default function ImportPage() {
     return (
       <div className="max-w-2xl">
         <div className="mb-8">
-          <button onClick={() => setStep('choose')} className="text-sm text-stone-400 hover:text-stone-600 mb-4 inline-block">
+          <button onClick={() => setStep('choose')} className="text-sm text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300 mb-4 inline-block">
             ← Zpět na import
           </button>
-          <h1 className="font-serif text-3xl text-stone-800 mb-2">Zkontrolujte recept</h1>
-          <p className="text-stone-400 text-sm">
+          <h1 className="font-serif text-3xl text-stone-800 dark:text-stone-100 mb-2">Zkontrolujte recept</h1>
+          <p className="text-stone-400 dark:text-stone-500 text-sm">
             Aplikace se pokusila rozpoznat recept automaticky. Zkontrolujte a případně upravte před uložením.
           </p>
         </div>
 
         {(!imported.title && !imported.ingredients && !imported.instructions) && (
-          <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-800 text-sm">
+          <div className="mb-6 p-4 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg text-amber-800 dark:text-amber-300 text-sm">
             Automatické rozpoznání se nepodařilo. Vyplňte recept ručně.
           </div>
         )}
@@ -87,18 +87,18 @@ export default function ImportPage() {
   return (
     <div className="max-w-xl">
       <div className="mb-8">
-        <Link href="/" className="text-sm text-stone-400 hover:text-stone-600 mb-4 inline-block">
+        <Link href="/" className="text-sm text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300 mb-4 inline-block">
           ← Zpět na recepty
         </Link>
-        <h1 className="font-serif text-3xl text-stone-800 mb-2">Import receptu</h1>
-        <p className="text-stone-400 text-sm">
+        <h1 className="font-serif text-3xl text-stone-800 dark:text-stone-100 mb-2">Import receptu</h1>
+        <p className="text-stone-400 dark:text-stone-500 text-sm">
           Importujte recept z webové stránky, fotky nebo PDF souboru.
         </p>
       </div>
 
       <div className="card p-6 sm:p-8 space-y-6">
         {/* Method selector */}
-        <div className="flex gap-2 p-1 bg-cream-200 rounded-lg">
+        <div className="flex gap-2 p-1 bg-cream-200 dark:bg-stone-700 rounded-lg">
           {([
             { key: 'url', label: '🌐 Z URL adresy' },
             { key: 'file', label: '📄 Z fotky / PDF' },
@@ -107,7 +107,7 @@ export default function ImportPage() {
               key={key}
               onClick={() => { setMethod(key); setError('') }}
               className={`flex-1 py-2 px-3 text-sm font-medium rounded-md transition-all ${
-                method === key ? 'bg-white shadow-sm text-stone-800' : 'text-stone-500 hover:text-stone-700'
+                method === key ? 'bg-white dark:bg-stone-600 shadow-sm text-stone-800 dark:text-stone-100' : 'text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200'
               }`}
             >
               {label}
@@ -118,7 +118,7 @@ export default function ImportPage() {
         {/* URL input */}
         {method === 'url' && (
           <div>
-            <label className="block text-sm font-medium text-stone-700 mb-1.5">
+            <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1.5">
               URL adresa receptu
             </label>
             <input
@@ -129,7 +129,7 @@ export default function ImportPage() {
               className="input-field"
               onKeyDown={(e) => e.key === 'Enter' && handleImport()}
             />
-            <p className="mt-2 text-xs text-stone-400">
+            <p className="mt-2 text-xs text-stone-400 dark:text-stone-500">
               Funguje nejlépe na stránkách s označením receptu dle standardu schema.org (např. Recepty.cz, Toprecepty.cz, Kupi.cz a další).
             </p>
           </div>
@@ -138,19 +138,19 @@ export default function ImportPage() {
         {/* File input */}
         {method === 'file' && (
           <div>
-            <label className="block text-sm font-medium text-stone-700 mb-1.5">
+            <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1.5">
               Soubor
             </label>
             <div
               onClick={() => fileRef.current?.click()}
-              className="border-2 border-dashed border-cream-300 rounded-lg p-8 text-center cursor-pointer hover:border-gold hover:bg-cream-50 transition-all"
+              className="border-2 border-dashed border-cream-300 dark:border-stone-600 rounded-lg p-8 text-center cursor-pointer hover:border-gold hover:bg-cream-50 dark:hover:bg-stone-700/50 transition-all"
             >
               {file ? (
-                <p className="text-stone-700 font-medium">{file.name}</p>
+                <p className="text-stone-700 dark:text-stone-200 font-medium">{file.name}</p>
               ) : (
                 <>
-                  <p className="text-stone-400 mb-1">Klikněte pro výběr souboru</p>
-                  <p className="text-xs text-stone-300">PDF, JPG, PNG</p>
+                  <p className="text-stone-400 dark:text-stone-500 mb-1">Klikněte pro výběr souboru</p>
+                  <p className="text-xs text-stone-300 dark:text-stone-600">PDF, JPG, PNG</p>
                 </>
               )}
             </div>
@@ -161,7 +161,7 @@ export default function ImportPage() {
               className="hidden"
               onChange={(e) => setFile(e.target.files?.[0] ?? null)}
             />
-            <p className="mt-2 text-xs text-stone-400">
+            <p className="mt-2 text-xs text-stone-400 dark:text-stone-500">
               <strong>PDF:</strong> extrahuje text. <strong>Fotka:</strong> rozpoznání textu pomocí OCR (lokální, bez internetu).
               Přesnost závisí na kvalitě předlohy.
             </p>
@@ -169,7 +169,7 @@ export default function ImportPage() {
         )}
 
         {error && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+          <div className="p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400 text-sm">
             {error}
           </div>
         )}
@@ -184,8 +184,8 @@ export default function ImportPage() {
       </div>
 
       {/* Info box */}
-      <div className="mt-6 p-4 bg-cream-200 rounded-xl text-sm text-stone-500 space-y-1">
-        <p className="font-medium text-stone-600">Jak import funguje?</p>
+      <div className="mt-6 p-4 bg-cream-200 dark:bg-stone-800 rounded-xl text-sm text-stone-500 dark:text-stone-400 space-y-1">
+        <p className="font-medium text-stone-600 dark:text-stone-300">Jak import funguje?</p>
         <p>Aplikace se pokusí automaticky rozpoznat název, suroviny a postup. Výsledek si pak zkontrolujete a upravíte před uložením.</p>
       </div>
     </div>

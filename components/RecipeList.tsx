@@ -52,8 +52,8 @@ export default function RecipeList({ initialRecipes, isAdmin }: { initialRecipes
               onClick={() => setCategory(cat)}
               className={`px-4 py-2.5 text-sm rounded-lg border font-medium transition-all duration-200 ${
                 category === cat
-                  ? 'bg-stone-800 text-white border-stone-800'
-                  : 'bg-white text-stone-600 border-cream-300 hover:bg-cream-100'
+                  ? 'bg-stone-800 text-white border-stone-800 dark:bg-stone-200 dark:text-stone-900 dark:border-stone-200'
+                  : 'bg-white text-stone-600 border-cream-300 hover:bg-cream-100 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-600 dark:hover:bg-stone-700'
               }`}
             >
               {cat === 'vse' ? 'Vše' : cat === 'vareni' ? 'Vaření' : 'Pečení'}
@@ -64,7 +64,7 @@ export default function RecipeList({ initialRecipes, isAdmin }: { initialRecipes
             className={`px-4 py-2.5 text-sm rounded-lg border font-medium transition-all duration-200 ${
               onlyFavorites
                 ? 'bg-gold text-white border-gold'
-                : 'bg-white text-stone-600 border-cream-300 hover:bg-cream-100'
+                : 'bg-white text-stone-600 border-cream-300 hover:bg-cream-100 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-600 dark:hover:bg-stone-700'
             }`}
           >
             ★ Oblíbené
@@ -73,7 +73,7 @@ export default function RecipeList({ initialRecipes, isAdmin }: { initialRecipes
       </div>
 
       {/* Results count */}
-      <p className="no-print text-sm text-stone-400 mb-4">
+      <p className="no-print text-sm text-stone-400 dark:text-stone-500 mb-4">
         {filtered.length === 0
           ? 'Žádné recepty nenalezeny'
           : `${filtered.length} ${filtered.length === 1 ? 'recept' : filtered.length < 5 ? 'recepty' : 'receptů'}`}
@@ -92,7 +92,7 @@ export default function RecipeList({ initialRecipes, isAdmin }: { initialRecipes
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 text-stone-400">
+        <div className="text-center py-20 text-stone-400 dark:text-stone-500">
           <p className="font-serif text-2xl mb-2">Nic tu není</p>
           <p className="text-sm">Zkuste změnit filtr nebo přidejte nový recept.</p>
         </div>
